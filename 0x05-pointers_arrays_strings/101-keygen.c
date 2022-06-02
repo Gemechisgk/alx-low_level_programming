@@ -1,24 +1,29 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-/**
- * main - generates keygen.
- * Return: 0 Always.
- */
-int main(void)
-{
-	int r = 0, c = 0;
-	time_t t;
+#include "main.h"
 
-	srand((unsigned int) time(&t));
-	while (c < 2772)
+/**
+ * _atoi - convert a string into an integer.
+ *
+ * @s: the string to use.
+ *
+ * Return: integer.
+ */
+
+int _atoi(char *s)
+{
+	int sign = 1, i = 0;
+	unsigned int res = 0;
+
+	while (!(s[i] <= '9' && s[i] >= '0') && s[i] != '\0')
 	{
-		r = rand() % 128;
-		if ((c + r) > 2772)
-			break;
-		c = c + r;
-		printf("%c", r);
+		if (s[i] == '-')
+			sign *= -1;
+		i++;
 	}
-	printf("%c\n", (2772 - c));
-	return (0);
+	while (s[i] <= '9' && (s[i] >= '0' && s[i] != '\0'))
+	{
+		res = (res * 10) + (s[i] - '0');
+		i++;
+	}
+	res *= sign;
+	return (res);
 }
