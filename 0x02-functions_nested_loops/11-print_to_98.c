@@ -30,7 +30,7 @@ void print_to_98(int n)
 					if (n < 0)
 					{
 						putchar('-');
-						putchar((n * -1) + '0');
+						putchar((n * 1) + '0');
 						putchar(',');
 						putchar(' ');
 					}
