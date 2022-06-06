@@ -9,82 +9,18 @@
 */
 void print_to_98(int n)
 {
-	int end;
 
-	end = 98;
+while (n < 98)
+{
+	printf("%i, ", n);
+	n++;
+}
+while (n > 98)
+{
+	printf("%i, ", n);
+	n--;
+}
 
-	if (n < end)
-	{
-		for (; n <= end; n++)
-		{
-			if (n == 98)
-			{
-				putchar((n / 10) + '0');
-				putchar((n % 10) + '0');
-				break;
-			}
-			else
-			{
-				if (n >= -9 && n <= 9)
-				{
-					if (n < 0)
-					{
-						putchar('-');
-						putchar((n * 1) + '0');
-						putchar(',');
-						putchar(' ');
-					}
-					else if (n >= 0)
-					{
-						putchar(n + '0');
-						putchar(',');
-						putchar(' ');
-					}
-				}
-				else if (n >= 100)
-				{
-					putchar((n / 100) + '0');
-					putchar((n / 10) + '0');
-					putchar((n % 10) + '0');
-					putchar(',');
-					putchar(' ');
-				}
-				else
-				{
-					putchar((n / 10) + '0');
-					putchar((n % 10) + '0');
-					putchar(',');
-					putchar(' ');
-				}
-			}
-		}
-		putchar('\n');
-	}
-	else if (n == 0)
-	{
-		putchar((n / 10) + '0');
-		putchar((n % 10) + '0');
-		putchar('\n');
-	}
-	else
-	{
-		for (; n >= end; n--)
-		{
-			if (n == 98)
-			{
-				putchar((n / 10) + '0');
-				putchar((n % 10) + '0');
-				break;
-			}
-			else
-			{
-				putchar((n / 10) + '0');
-				putchar((n % 10) + '0');
-				putchar(',');
-				putchar(' ');
-			}
-		}
-		putchar('\n');
-	}
-	return;
+printf("98");
+putchar('\n');
 }
