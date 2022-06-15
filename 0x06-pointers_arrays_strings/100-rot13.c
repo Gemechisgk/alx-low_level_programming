@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include<main.h>
 #define ROT 13
 
 int main(void)
