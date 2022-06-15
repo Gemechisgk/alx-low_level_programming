@@ -1,35 +1,26 @@
 #include<main.h>
-#define ROT 13
 
-int main(void)
+char *rot13(char *str)
 {
-    int c,e;
+	int i, j;
 
-    while((c=getchar())!=EOF)
-    {
-        if(c >='A' && c <='Z')
-        {
-            if((e = c + ROT) <= 'Z')
-                putchar(e);
-            else
-            {
-                   e = c - ROT;
-                putchar(e);
-            }
-        }
-        else if(c >='a' && c <='z')
-        {
-            if((e= c + ROT) <= 'z')
-                putchar(e);
-            else
-            {
-                e = c - ROT;
-                putchar(e);
-            }
-        }
-        else
-            putchar(c);
-    }
+	char alpha[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char rot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-return 0;
+	i = 0;
+	while (str[i] != '\0')
+	{
+		j = 0;
+		while (alpha[j] != '\0')
+		{
+			if (str[i] == alpha[j])
+			{
+				str[i] = rot[j];
+				break;
+			}
+			j++;
+		}
+		i++;
+	}
+	return (str);
 }
