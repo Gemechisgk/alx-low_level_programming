@@ -5,35 +5,21 @@
  * @n: an exponent
  * Return: returns 10 to power exponent
  */
-int base10(int n)
-{
-	int base = 10;
-
-	while (n > 0)
-	{
-		base *= 10;
-		n--;
-	}
-	return (base);
-}
-
-/**
- * print_number - prints integers enters as parameters using putchar
- * @n: integer to print
- * Return: void
- */
 void print_number(int n)
 {
-	int power;
-
-	power = base10(8);
+	unsigned int i = n;
 
 	if (n < 0)
 	{
-		_putchar('-');
-		n *= -1;
+		_putchar(45);
+		i = -i;
 	}
-
+	if (i / 10)
+	{
+		print_number(i / 10);
+	}
+	_putchar(i % 10 + '0');
+}
 	if (n == 0)
 		_putchar('0');
 
