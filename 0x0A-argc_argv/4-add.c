@@ -1,28 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
-
 /**
- * main - entry point, adds multiple positive integers, prints "Error"
- * if any argument is not a postitive integer
- *
- * @argc: amount of cmd line arguments, starting with program
- * name itself
- *
- * @argv: array of strings containing cmd line arguments
- *
- * Return: 0 on sucess, 1 if any argument is not a positive integer
+ * main - adds positive numbers.
+ * @argc: number of command line arguments.
+ * @argv: array that contains the program command line arguments.
+ * Return: 0 - success.
  */
-
 int main(int argc, char *argv[])
 {
-	int i;
-	int j;
-	int sum = 0;
+	int i, j, add = 0;
 
 	for (i = 1; i < argc; i++)
 	{
-		for (j = 0; argv[i][j]; j++)
+		for (j = 0; argv[i][j] != '\0'; j++)
 		{
 			if (!isdigit(argv[i][j]))
 			{
@@ -30,8 +21,8 @@ int main(int argc, char *argv[])
 				return (1);
 			}
 		}
-			sum += atoi(argv[i]);
+		add += atoi(argv[i]);
 	}
-		printf("%d\n", sum);
-		return (0);
+	printf("%d\n", add);
+	return (0);
 }

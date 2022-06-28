@@ -1,46 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 /**
- * main - entry point, prints mininum amount of coins needed,
- * prints error if too many arguments, 0 if negative number given
- *
- * @argc: amount of cmd line arguments, starting with program
- * name itself
- *
- * @argv: array of strings containing cmd line arguments
- *
- * Return: 0 if amount given is positive or negative integer, 1 if
- * incorrect number of arguments
+ * main - prints the minimum number of coins to make change for an amount.
+ * of money.
+ * @argc: number of command line arguments.
+ * @argv: array that contains the program command line arguments.
+ * Return: 0 - success.
  */
-
 int main(int argc, char *argv[])
 {
-	int i;
-	int change;
-	int min_coins = 0;
-/* note that the European 2-cent coin is named in instructions */
-	int denom[] = {25, 10, 5, 2, 1};
+	int cents, ncoins = 0;
 
-	if (argc != 2)
+	if (argc == 1 || argc > 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	else if (atoi(argv[1]) < 0)
+
+	cents = atoi(argv[1]);
+
+	while (cents > 0)
 	{
-		printf("0\n");
-		return (0);
+		if (cents >= 25)
+			cents -= 25;
+		else if (cents >= 10)
+			cents -= 10;
+		else if (cents >= 5)
+			cents -= 5;
+		else if (cents >= 2)
+			cents -= 2;
+		else if (cents >= 1)
+			cents -= 1;
+		ncoins += 1;
 	}
-	else
-	{
-		change = atoi(argv[1]);
-		for (i = 0; i < 5; i++)
-		{
-			min_coins += (change / denom[i]);
-			change -= ((change / denom[i]) * denom[i]);
-		}
-	}
-	printf("%d\n", min_coins);
+	printf("%d\n", ncoins);
 	return (0);
 }
