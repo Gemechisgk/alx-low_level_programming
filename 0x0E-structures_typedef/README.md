@@ -1,2 +1,2 @@
-# (225) 0x0E. C - Structures, typedef
+0x0E. C - Structures, typedef
 Foundations > Low-level programming & Algorithm > Hatching out
